@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ابرهوش پرهام</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#101827;color:white}
+header{padding:24px;text-align:center;background:#18243a}
+h1{color:#72a7ff}
+main{max-width:700px;margin:24px auto;padding:16px}
+#chat{height:45vh;overflow:auto;background:#1b2940;border-radius:14px;padding:14px}
+.msg{padding:12px;margin:8px 0;border-radius:10px;background:#293b56;overflow-wrap:anywhere}
+form{display:flex;gap:8px;margin-top:14px}
+input{flex:1;min-width:0;padding:14px;border-radius:10px;border:0;font-size:16px}
+button{padding:12px 18px;border:0;border-radius:10px;background:#3979ee;color:white;font-size:16px}
+small{color:#bac8dd}
+</style>
+</head>
+<body>
+<header><h1>ابرهوش پرهام</h1><p>دستیار هوشمند شخصی شما</p></header>
+<main>
+<div id="chat"><div class="msg">سلام! من دستیار پرهام هستم. چه کمکی از دستم برمی‌آید؟</div></div>
+<form id="form"><input id="question" placeholder="پیامت را بنویس..." autocomplete="off" required><button>ارسال</button></form>
+<p><small>نسخه اولیه: رابط گفت‌وگو آماده است؛ اتصال به هوش مصنوعی در مرحله بعد انجام می‌شود.</small></p>
+</main>
+<script>
+const form=document.getElementById('form');
+const input=document.getElementById('question');
+const chat=document.getElementById('chat');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const text=input.value.trim();
+if(!text)return;
+const msg=document.createElement('div');
+msg.className='msg';
+msg.textContent='شما: '+text;
+chat.appendChild(msg);
+const reply=document.createElement('div');
+reply.className='msg';
+reply.textContent='پیامت دریافت شد. برای پاسخ هوشمند واقعی، باید در مرحله بعد یک سرویس هوش مصنوعی را متصل کنیم.';
+chat.appendChild(reply);
+input.value='';
+chat.scrollTop=chat.scrollHeight;
+});
+</script>
+</body>
+</html>
